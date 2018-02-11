@@ -9,14 +9,14 @@ issue_url = site + '/php/archive.phtml?jrnid=ivm&wshow=issue&year=2013&volume=&v
 issue_page = requests.get(issue_url)
 issue_page.encoding = 'windows-1251'
 
-issue = {'href': issue_url}
+issue = {'href': issue_url, 'articles': []}
 
 # Parse links and titles of articles
 issue_tree = html.fromstring(issue_page.text)
-issue['articles'] = [{'href': href, 'title': title}
-                     for href, title
-                     in zip(issue_tree.xpath('//td[@width="90%"]/a[@class="SLink"]/@href'),
-                            issue_tree.xpath('//td[@width="90%"]/a[@class="SLink"]/text()'))]
+for article in issue_tree.xpath('//td[@width="90%"]/a[@class="SLink"]'):
+    title = ''.join(article.xpath('descendant-or-self::text()'))
+    href, = article.xpath('@href')
+    issue['articles'].append({'href': href, 'title': title})
 
 # Parse annotation and keywords for each article
 for article in issue['articles']:
