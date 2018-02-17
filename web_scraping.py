@@ -1,7 +1,9 @@
 from lxml import html
 import requests
 import json
+from pymystem3 import Mystem
 
+from porter_stemmer import Porter
 
 # Get page
 site = 'http://www.mathnet.ru'
@@ -14,9 +16,16 @@ issue = {'href': issue_url, 'articles': []}
 # Parse links and titles of articles
 issue_tree = html.fromstring(issue_page.text)
 for article in issue_tree.xpath('//td[@width="90%"]/a[@class="SLink"]'):
-    title = ''.join(article.xpath('descendant-or-self::text()'))
+    title_normal = ''.join(article.xpath('descendant-or-self::text()'))
+    # Stem title using Porter algorithm
+    title_porter = ' '.join((map(Porter.stem, title_normal.split())))
+    # Stem title using Mystem module
+    title_mystem = ''.join(Mystem().lemmatize(title_normal)).strip()
     href, = article.xpath('@href')
-    issue['articles'].append({'href': href, 'title': title})
+    issue['articles'].append({'href': href,
+                              'title_normal': title_normal,
+                              'title_porter': title_porter,
+                              'title_mystem': title_mystem})
 
 # Parse annotation and keywords for each article
 for article in issue['articles']:
@@ -24,11 +33,17 @@ for article in issue['articles']:
     article_page = requests.get(article_url)
     article_page.encoding = 'windows-1251'
     article_tree = html.fromstring(article_page.text)
-    article['annotation'] = (list(map(str.strip,
-                                      article_tree.xpath("//table//text()"
-                                                         "[preceding-sibling::b[contains(text(), 'Аннотация') "
-                                                         "and following-sibling::b[1]]][1]"))))
-    article['keywords'] = article_tree.xpath("//i[preceding-sibling::b[contains(text(), 'Ключевые')]]/text()")[0][:-1].split(', ')
+    article['abstract_normal'] = (''.join(
+        map(str.strip,
+            article_tree.xpath("//table//text()[preceding-sibling::b[contains(text(), 'Аннотация') "
+                               "and following-sibling::b[1]]][1]"))))
+    # Stem title using Porter algorithm
+    article['abstract_porter'] = ' '.join(map(Porter.stem, article['abstract_normal'].split(' ')))
+    # Stem title using Mystem module
+    article['abstract_mystem'] = ''.join(Mystem().lemmatize(article['abstract_normal'])).strip()
+    article['keywords'] = (article_tree
+                           .xpath("//i[preceding-sibling::b[contains(text(), 'Ключевые')]]/text()")[0][:-1]
+                           .split(', '))
 
 # Save issue into JSON file
 with open('issue.json', 'w') as f:
