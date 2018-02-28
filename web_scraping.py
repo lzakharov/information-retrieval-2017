@@ -22,28 +22,28 @@ for article in issue_tree.xpath('//td[@width="90%"]/a[@class="SLink"]'):
     # Stem title using Mystem module
     title_mystem = ''.join(Mystem().lemmatize(title_normal)).strip()
     href, = article.xpath('@href')
-    issue['articles'].append({'href': href,
+    issue['articles'].append({'href': site + href,
                               'title_normal': title_normal,
                               'title_porter': title_porter,
                               'title_mystem': title_mystem})
 
 # Parse annotation and keywords for each article
 for article in issue['articles']:
-    article_url = site + article['href']
+    article_url = article['href']
     article_page = requests.get(article_url)
     article_page.encoding = 'windows-1251'
     article_tree = html.fromstring(article_page.text)
-    article['abstract_normal'] = (''.join(
-        map(str.strip,
-            article_tree.xpath("//table//text()[preceding-sibling::b[contains(text(), 'Аннотация') "
-                               "and following-sibling::b[1]]][1]"))))
+
+    abstract = ''.join(article_tree.xpath("//table//text()[preceding-sibling::b[contains(text(), 'Аннотация') "
+                                          "and following-sibling::b[1]]][1]/descendant-or-self::text()")).strip()
+    article['abstract_normal'] = abstract
     # Stem title using Porter algorithm
     article['abstract_porter'] = ' '.join(map(Porter.stem, article['abstract_normal'].split(' ')))
     # Stem title using Mystem module
     article['abstract_mystem'] = ''.join(Mystem().lemmatize(article['abstract_normal'])).strip()
-    article['keywords'] = (article_tree
-                           .xpath("//i[preceding-sibling::b[contains(text(), 'Ключевые')]]/text()")[0][:-1]
-                           .split(', '))
+    keywords = ' '.join(article_tree.xpath("//i[preceding-sibling::b[contains(text(), 'Ключевые')]]/"
+                                          "descendant-or-self::text()"))
+    article['keywords'] = list(map(str.strip, keywords.split(', ')))
 
 # Save issue into JSON file
 with open('issue.json', 'w') as f:
