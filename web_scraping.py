@@ -34,15 +34,15 @@ for article in issue['articles']:
     article_page.encoding = 'windows-1251'
     article_tree = html.fromstring(article_page.text)
 
-    abstract = ''.join(article_tree.xpath("//table//text()[preceding-sibling::b[contains(text(), 'Аннотация') "
-                                          "and following-sibling::b[1]]][1]/descendant-or-self::text()")).strip()
+    abstract = ''.join(article_tree.xpath(
+        "//b[text()='Аннотация:']/following::text()[preceding::b[1][text()='Аннотация:'] and not(parent::b)]")).strip()
     article['abstract_normal'] = abstract
     # Stem title using Porter algorithm
     article['abstract_porter'] = ' '.join(map(Porter.stem, article['abstract_normal'].split(' ')))
     # Stem title using Mystem module
     article['abstract_mystem'] = ''.join(Mystem().lemmatize(article['abstract_normal'])).strip()
     keywords = ' '.join(article_tree.xpath("//i[preceding-sibling::b[contains(text(), 'Ключевые')]]/"
-                                          "descendant-or-self::text()"))
+                                           "descendant-or-self::text()"))
     article['keywords'] = list(map(str.strip, keywords.split(', ')))
 
 # Save issue into JSON file
