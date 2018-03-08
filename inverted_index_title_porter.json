@@ -1,0 +1,419 @@
+{
+    "c^n": {
+        "count": 1,
+        "documents": [
+            3
+        ]
+    },
+    "i": {
+        "count": 1,
+        "documents": [
+            4
+        ]
+    },
+    "ii": {
+        "count": 1,
+        "documents": [
+            6
+        ]
+    },
+    "mathbb": {
+        "count": 1,
+        "documents": [
+            3
+        ]
+    },
+    "w^*$-алгебрах": {
+        "count": 1,
+        "documents": [
+            6
+        ]
+    },
+    "аффин": {
+        "count": 1,
+        "documents": [
+            4
+        ]
+    },
+    "банахов": {
+        "count": 1,
+        "documents": [
+            2
+        ]
+    },
+    "в": {
+        "count": 2,
+        "documents": [
+            2,
+            3
+        ]
+    },
+    "весахн": {
+        "count": 1,
+        "documents": [
+            6
+        ]
+    },
+    "втор": {
+        "count": 1,
+        "documents": [
+            1
+        ]
+    },
+    "высш": {
+        "count": 1,
+        "documents": [
+            7
+        ]
+    },
+    "гильберт": {
+        "count": 1,
+        "documents": [
+            8
+        ]
+    },
+    "гладк": {
+        "count": 1,
+        "documents": [
+            5
+        ]
+    },
+    "дифференциальн": {
+        "count": 3,
+        "documents": [
+            0,
+            1,
+            2
+        ]
+    },
+    "для": {
+        "count": 3,
+        "documents": [
+            0,
+            1,
+            2
+        ]
+    },
+    "дробн": {
+        "count": 1,
+        "documents": [
+            2
+        ]
+    },
+    "единствен": {
+        "count": 1,
+        "documents": [
+            2
+        ]
+    },
+    "задач": {
+        "count": 4,
+        "documents": [
+            0,
+            8,
+            2,
+            6
+        ]
+    },
+    "и": {
+        "count": 2,
+        "documents": [
+            8,
+            1
+        ]
+    },
+    "индекс": {
+        "count": 1,
+        "documents": [
+            8
+        ]
+    },
+    "корн": {
+        "count": 1,
+        "documents": [
+            3
+        ]
+    },
+    "кош": {
+        "count": 1,
+        "documents": [
+            2
+        ]
+    },
+    "коэффициент": {
+        "count": 1,
+        "documents": [
+            8
+        ]
+    },
+    "краев": {
+        "count": 1,
+        "documents": [
+            0
+        ]
+    },
+    "критер": {
+        "count": 1,
+        "documents": [
+            1
+        ]
+    },
+    "линейн": {
+        "count": 1,
+        "documents": [
+            1
+        ]
+    },
+    "логарифмическ": {
+        "count": 1,
+        "documents": [
+            8
+        ]
+    },
+    "минимальн": {
+        "count": 1,
+        "documents": [
+            7
+        ]
+    },
+    "множеств": {
+        "count": 1,
+        "documents": [
+            8
+        ]
+    },
+    "на": {
+        "count": 2,
+        "documents": [
+            4,
+            5
+        ]
+    },
+    "нахожден": {
+        "count": 1,
+        "documents": [
+            3
+        ]
+    },
+    "неалгебраическ": {
+        "count": 1,
+        "documents": [
+            3
+        ]
+    },
+    "о": {
+        "count": 5,
+        "documents": [
+            2,
+            5,
+            6,
+            7
+        ]
+    },
+    "обратн": {
+        "count": 1,
+        "documents": [
+            2
+        ]
+    },
+    "обыкновен": {
+        "count": 1,
+        "documents": [
+            1
+        ]
+    },
+    "ограничен": {
+        "count": 1,
+        "documents": [
+            1
+        ]
+    },
+    "однородн": {
+        "count": 2,
+        "documents": [
+            8,
+            4
+        ]
+    },
+    "особен": {
+        "count": 1,
+        "documents": [
+            8
+        ]
+    },
+    "период": {
+        "count": 1,
+        "documents": [
+            7
+        ]
+    },
+    "периодическ": {
+        "count": 1,
+        "documents": [
+            0
+        ]
+    },
+    "плоскост": {
+        "count": 1,
+        "documents": [
+            5
+        ]
+    },
+    "порядк": {
+        "count": 3,
+        "documents": [
+            0,
+            1,
+            7
+        ]
+    },
+    "проективн": {
+        "count": 1,
+        "documents": [
+            5
+        ]
+    },
+    "производн": {
+        "count": 1,
+        "documents": [
+            2
+        ]
+    },
+    "пространств": {
+        "count": 1,
+        "documents": [
+            2
+        ]
+    },
+    "пространствах": {
+        "count": 1,
+        "documents": [
+            4
+        ]
+    },
+    "псевдориманов": {
+        "count": 1,
+        "documents": [
+            4
+        ]
+    },
+    "разрыв": {
+        "count": 1,
+        "documents": [
+            8
+        ]
+    },
+    "решен": {
+        "count": 2,
+        "documents": [
+            2,
+            7
+        ]
+    },
+    "с": {
+        "count": 1,
+        "documents": [
+            2
+        ]
+    },
+    "связност": {
+        "count": 1,
+        "documents": [
+            4
+        ]
+    },
+    "сист": {
+        "count": 1,
+        "documents": [
+            3
+        ]
+    },
+    "со": {
+        "count": 1,
+        "documents": [
+            8
+        ]
+    },
+    "степен": {
+        "count": 1,
+        "documents": [
+            3
+        ]
+    },
+    "субаддитивн": {
+        "count": 1,
+        "documents": [
+            6
+        ]
+    },
+    "сумм": {
+        "count": 1,
+        "documents": [
+            3
+        ]
+    },
+    "счетн": {
+        "count": 1,
+        "documents": [
+            8
+        ]
+    },
+    "точек": {
+        "count": 1,
+        "documents": [
+            8
+        ]
+    },
+    "трехмерн": {
+        "count": 1,
+        "documents": [
+            4
+        ]
+    },
+    "уравнен": {
+        "count": 5,
+        "documents": [
+            0,
+            1,
+            2,
+            3,
+            7
+        ]
+    },
+    "устойчив": {
+        "count": 1,
+        "documents": [
+            1
+        ]
+    },
+    "функц": {
+        "count": 1,
+        "documents": [
+            5
+        ]
+    },
+    "функционально-дифференциальн": {
+        "count": 1,
+        "documents": [
+            7
+        ]
+    },
+    "хаагеруп": {
+        "count": 1,
+        "documents": [
+            6
+        ]
+    },
+    "четверт": {
+        "count": 1,
+        "documents": [
+            0
+        ]
+    },
+    "эквивалентн": {
+        "count": 1,
+        "documents": [
+            5
+        ]
+    }
+}

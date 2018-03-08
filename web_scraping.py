@@ -2,6 +2,7 @@ from lxml import html
 import requests
 import json
 from pymystem3 import Mystem
+from string import punctuation
 
 from porter_stemmer import Porter
 
@@ -43,7 +44,7 @@ for article in issue['articles']:
     article['abstract_mystem'] = ''.join(Mystem().lemmatize(article['abstract_normal'])).strip()
     keywords = ' '.join(article_tree.xpath("//i[preceding-sibling::b[contains(text(), 'Ключевые')]]/"
                                            "descendant-or-self::text()"))
-    article['keywords'] = list(map(str.strip, keywords.split(', ')))
+    article['keywords'] = list(map(lambda w: w.strip('.'), map(str.strip, keywords.split(', '))))
 
 # Save issue into JSON file
 with open('issue.json', 'w') as f:
