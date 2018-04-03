@@ -59,10 +59,10 @@ class BooleanSearch:
 issue = json.load(open('issue.json'))
 articles = issue['articles']
 inverted_index = json.load(open('inverted_index_abstract_mystem.json'))
-query = input()
+# query = input()
 
-result = BooleanSearch(inverted_index, len(articles)).process(query)
-
-for i in result:
-    article = articles[i]
-    print('{}, {}'.format(article['title_normal'], article['href']))
+# result = BooleanSearch(inverted_index, len(articles)).process(query)
+#
+# for i in result:
+#     article = articles[i]
+#     print('{}, {}'.format(article['title_normal'], article['href']))
