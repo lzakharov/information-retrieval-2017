@@ -1,10 +1,8 @@
 import json
-import string
-
 import math
 
 from boolean_search import BooleanSearch
-from utils import SetEncoder
+from utils import SetEncoder, process
 
 
 class TFIDF:
@@ -38,10 +36,6 @@ class TFIDF:
         return tf_idf
 
 
-def process(text):
-    return text.replace(string.punctuation, ' ').replace('\xa0', ' ').split()
-
-
 def score(query, result, tf_idf):
     for d in result:
         score = 0
@@ -58,8 +52,8 @@ def score(query, result, tf_idf):
 
 issue = json.load(open('issue.json'))
 articles = issue['articles']
-documents = [{'title': process(article['title_mystem']),
-              'abstract': process(article['abstract_mystem'])}
+documents = [{'title': process(article['title_mystem']).split(),
+              'abstract': process(article['abstract_mystem']).split()}
              for article in articles]
 
 inverted_index = json.load(open('inverted_index_abstract_mystem.json'))

@@ -1,4 +1,5 @@
 import json
+import string
 
 
 class SetEncoder(json.JSONEncoder):
@@ -6,3 +7,8 @@ class SetEncoder(json.JSONEncoder):
         if isinstance(obj, set):
             return sorted(list(obj))
         return json.JSONEncoder.default(self, obj)
+
+
+def process(text):
+    translator = str.maketrans('', '', string.punctuation + '\xa0')
+    return text.translate(translator)
