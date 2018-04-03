@@ -46,8 +46,13 @@ def score(query, result, tf_idf):
     for d in result:
         score = 0
         for word in query.split():
-            word_score, = [x['full'] for x in tf_idf[word] if x['document_id'] == d]
-            score += word_score
+            try:
+                score += [x['full']
+                          for x in tf_idf[word]
+                          if x['document_id'] == d][0]
+            except IndexError:
+                score += 0
+
         print(f'Документ {d}: {score}')
 
 
