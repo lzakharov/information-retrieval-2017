@@ -16,7 +16,7 @@ query1 = 'условие решение'
 lsi1 = LSI(documents, query1, model=TFIDFModel)
 print(f'{query1}: {" ".join(map(str, lsi1.process()))}')
 
-query2 = 'линейный решение уравнение'
+query2 = 'линейный уравнение'
 lsi2 = LSI(documents, query2, model=TFIDFModel)
 print(f'{query2}: {" ".join(map(str, lsi2.process()))}')
 
